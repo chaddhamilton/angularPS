@@ -1,0 +1,51 @@
+<div class='card'>
+<div class='card-header'>
+   {{pageTitle}}
+ </div>
+
+ <div class="card-body">
+   <div class="col-md-5">Filter By: <input type="text" id="filter" [(ngModel)]='listFilter' />
+     <select class="input" [(ngModel)]='selectedProdFilter'>
+         <option *ngFor="let cat of productFilter" [ngValue]="cat.id">{{cat.name}}</option>
+    </select>
+ </div>
+ 
+   <div class="row">
+       <div class="col-md-6" style="padding-top:10px">
+           <h4>Filtered by: {{listFilter}}</h4>
+       </div>
+   </div>
+  </div>
+  <div class='table-responsive'>
+   <table class="table" *ngIf='products && products.length'>
+       <thead>
+           <tr>
+               <th>
+                   <button class='btn btn-primary' (click)='toggleImage()'>
+                       {{ showImage? 'Hide' : 'Show'}} image
+                   </button>
+               </th>
+               
+               <th>Product</th>
+               <th>Code</th>
+               <th>Available</th>
+               <th>Price</th>
+               <th>5 Star Rating</th>
+           </tr>
+       </thead>
+       <tbody>
+       <tr *ngFor="let prod of filteredProducts">
+           <td><img [src]='prod.imageUrl' 
+                    [style.width.px]='imageWidth'
+                    *ngIf='showImage' /></td>
+           <td>{{prod.productName }}</td>
+           <td>{{prod.productCode | convertToSpaces: '-' }}</td>
+           <td>{{prod.releaseDate}}</td>
+           <td>{{prod.price | currency  }}</td>
+           <td><star-rating [rating]='prod.starRating'></star-rating></td>
+       </tr>
+       </tbody>
+   </table>
+
+  </div>
+</div>
