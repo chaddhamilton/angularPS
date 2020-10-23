@@ -1,0 +1,17 @@
+<div class="card">
+<div class="card-header">
+    {{pageTitle}} 
+</div>
+</div>
+<form>
+    <div class="form-group">
+      <label for="prodName" ><strong>Name</strong></label>
+      <input type="text" class="form-control" id="prodName" value=" {{product.productName}}" >
+      <label for="prodCode">Code</label>
+      <input type="text" class="form-control" id="prodCode" value=" {{product.productCode}}" >
+      <label for="prodPrice">Price</label>
+      <input type="text" class="form-control" id="prodPrice" value="{{product.price | currency}}" >
+       </div>
+    
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>

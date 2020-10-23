@@ -5,8 +5,7 @@ import { ProductService } from './product.service';
 
 //component decorator
 @Component({
-  selector: 'pm-products',
-  templateUrl: './product-list.component.html',
+ templateUrl: './product-list.component.html',
   styleUrls: ['./productlistcomponent.css'] //array for adding multiple styles
 })
 
@@ -19,7 +18,7 @@ export class ProductListComponent implements OnInit {
   //lifecycle hook
   ngOnInit(): void {
      this.getProducts();
-  }
+ }
   
   performFilter(filterBy: string): IProduct[] {
     filterBy = filterBy.toLocaleLowerCase();
@@ -77,7 +76,7 @@ export class ProductListComponent implements OnInit {
   
 
   //Toggle image function  
-  toggleImage(): void {
+  public toggleImage(): void {
     this.showImage = !this.showImage;
   }
 

@@ -38,7 +38,7 @@
            <td><img [src]='prod.imageUrl' 
                     [style.width.px]='imageWidth'
                     *ngIf='showImage' /></td>
-           <td>{{prod.productName }}</td>
+           <td><a class='nav-link' [routerLink]="['/products', prod.productId]">{{prod.productName }}</a></td>
            <td>{{prod.productCode | convertToSpaces: '-' }}</td>
            <td>{{prod.releaseDate}}</td>
            <td>{{prod.price | currency  }}</td>
