@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
   <a class='navbar-brand'>{{pageTitle}}</a>
             <ul class='nav nav-pills'>
             <li><a class='nav-link' [routerLink]="['/welcome']">Home</a></li>
-            <li><a class='nav-link' [routerLink]="['/products']">Products</a></li>
+            <li><a class='nav-link' id='BookNavLink' [routerLink]="['/Books']">Books</a></li>
             </ul>
   </nav>
   <div class='container'>
@@ -18,7 +18,7 @@ import { Component } from '@angular/core';
 })
 
 export class AppComponent {
-  pageTitle: string = "Acme Products";
+  pageTitle: string = "Booker";
   something ='this is it';
   somethingEles : string ='heyey';
   listOfStuff : Array<string> = ["john", "tom", "frank", "bill"];

@@ -3,6 +3,10 @@ import {Injectable} from '@angular/core'
 import {Observable, of} from 'rxjs';
 import {IProduct} from './product';
 import { catchError, map, tap } from 'rxjs/operators';
+import { AppSettingsService } from '../shared/appsettings.service';
+import { AppSettings } from '../shared/appsetting';
+
+
 
 
 @Injectable( {
@@ -10,15 +14,21 @@ import { catchError, map, tap } from 'rxjs/operators';
 })
 export class ProductService
 {
-  private prodUrl = 'https://localhost:44340/api/values';
-    constructor(private http: HttpClient) {
+  private prodUrl = '';
+  
+    constructor(private http: HttpClient, private _appsetting :AppSettingsService) {
+     this.appSettings = _appsetting.getSettings();
+     this.prodUrl = this.appSettings.BookerApIUrl + 'values';
+  
     }
+
+    public appSettings:AppSettings;
     public prod : IProduct[];
     
 
    public getAllProducts() : Observable<IProduct[]>
     {       
-      console.log("getting list from " + this.prodUrl);
+      console.log("getting list from " + this.prodUrl + "values");
      return this.http.get<IProduct[]>(this.prodUrl)
     }
 
